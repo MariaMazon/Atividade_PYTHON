@@ -1,128 +1,119 @@
-# Crie uma nova classe chamada Pessoa
-# com atributos como nome, idade e
-# profissão. Adicione um método especial
-# __str__ para imprimir uma representação
-# em string da pessoa. Implemente também
-# um método de instância chamado
-# aniversario que aumenta a idade da
-# pessoa em um ano. Por fim, adicione uma
-# propriedade chamada saudacao que
-# retorna uma mensagem de saudação
-# personalizada com base na profissão da
-# pessoa.
-
 #QUESTÃO 1
 
 # class Pessoa:
-#     pessoas=[]
-
-#     def __init__(self,nome='MARIA',idade=0,profissao='ESTUDANTE'):
+#     def __init__(self,nome='',profissao='',idade=0):
 #         self.nome=nome
-#         self.idade=idade
 #         self.profissao=profissao
-
-#         Pessoa.pessoas.append(self)
+#         self.idade=idade
 
 #     def __str__(self):
-#         return f'{self.nome} | {self.idade} | {self.profissao}'
-    
+#         return f'{self.nome} | {self.profissao} | {self.idade} anos'
 
-    
-#     def listar_pessoas():
-#         print(f'{'Pessoa'.ljust(15)} | {'Idade'.ljust(15)} | {'Profissão'.ljust(15)} ')
-#         for pessoa in Pessoa.pessoas:
-#             print(f'{pessoa.nome.ljust(15)} | {pessoa.idade.ljust(15)} | {pessoa.profissao}')
+#     def aniversario(self):
+#         self.idade += 1
 
 #     @property
-#     def aniversario(self,aniversario):
-#         self.idade += aniversario
+#     def saudacao(self):
+#         if self.profissao:
+#             print(f'Ola {self.nome}! Parabens pelo seu trabalho, sendo  {self.profissao} ') 
+#         else:
+#             print (f'Ola {self.nome}')
+        
 
+# pessoa1=Pessoa('Maria','Estudante',21)
 
-# pessoa_1=Pessoa('Maria','21','estudante') 
-# Pessoa.listar_pessoas()
-# Pessoa.aniversario
+# print('QUESTÃO 1:')
+# print('')
+# print(pessoa1)
+# print('')
+# pessoa1.aniversario()
+# print(f' No proxim aniversário você fará: {pessoa1.idade} anos')
+# print('')
+# pessoa1.saudacao
+# print('')
 
-class livro:
-    def __init__(self,titulo='',autor='',pagina=0):
-        self.titulo=titulo
-        self.autor=autor
-        self.pagina=pagina
-
-    def __str__(self):
-        return f'{self.titulo} por {self.autor} - {self.pagina} paginas'
-
-    @property
-    def titulo_autor(self):
-        return f'{self.titulo} por {self.autor}'
-    
-    def aumentar_paginas(self, quantidade):
-        self.pagina += quantidade
-
-livro1=livro('joao','silva',30)
-livro1.aumentar_paginas(2)
-print(livro1)
-
-
-
-#QUESTÃO 2 E 3
-
+#QUESTÃO 2 
 # class ContaBancaria:
-
-#     contas=[]
 
 #     def __init__(self,titular,saldo):
 #         self.titular=titular
 #         self.saldo=saldo
-#         self.ativo=False
+#         self._ativo=False
 
-#         ContaBancaria.contas.append(self)
+#QUESTÃO 3
+    # def __str__(self):
+    #     return f'O titular: {self.titular} possui R${self.saldo}'
 
-#     def __str__(self):
-#         return f'{self.titular} | {self.saldo}'
+# conta_1=ContaBancaria('Maria',100000)
+# conta_2=ContaBancaria('João',50000)
 
-#     def listar_contas():
-#         for conta in ContaBancaria.contas:
-#             print(f'{conta.titular} | {conta.saldo}')
-
-# # QUESTÃO 3
-#     def __str__(self):
-#         return f'O titular: {self.titular} possui R${self.saldo}'
-
-#     def listar_contas_detalhadas():
-#         for conta in ContaBancaria.contas:
-#             print(f'O titular: {conta.titular} possui R${conta.saldo}')
+# print('QUESTÃO 2 e 3:')
+# print('')
+# print(conta_1)
+# print('')
+# print(conta_2)
     
-# # QUESTÃO 4
+# QUESTÃO 4
 
 #     @classmethod
-#     def ativar_conta(self):
-#         self.ativo=not self.ativo
+#     def ativar_conta(cls,conta):
+#         conta._ativo=True
 
-#         for conta in cls.contas:
-#             print(f' {conta.ativo}')
+# conta3=ContaBancaria('Daniel',2.00)
+
+# print('')
+# print('QUESTÃO 4:')
+# print('')
+# print(f'Antes de ativar: Conta ativa? {conta3._ativo}')
+# ContaBancaria.ativar_conta(conta3)
+# print(f'Agora a conta esta {conta3._ativo}')
+
+# QUESTÃO 5
+
+# class ContaBancariaPy:
+#     def __init__(self,titular,saldo):
+#         self._titular=titular
+#         self._saldo=saldo
+#         self._ativo=False
 
 #     @property
-#     def ativo(self):
-#         return '☑' if self._ativo else '☒'
+#     def titular(self):
+#         return self._titular
 
-
-# conta_1=ContaBancaria('Maria','100000')
-# conta_2=ContaBancaria('João','50000')
-
-# print('QUESTÃO 2:')
-# ContaBancaria.listar_contas()
-# print('')
-# print('QUESTÃO 3:')
-# ContaBancaria.listar_contas_detalhadas()
-# print('')
-# conta_1.ativar_conta()
-
-# QUESTÃO 4
-# Adicione um método de classe chamado
-# ativar_conta à classe ContaBancaria que
-# define o atributo ativo como True. Crie uma instância da classe, chame o método
-# de classe e imprima o valor de ativo.
-
-#metodo de classe
+#     @property
+#     def saldo(self):
+#         return self._saldo
     
+#     @property
+#     def ativo(self):
+#         return self._ativo
 
+# QUESTÃO 6
+
+# conta4=ContaBancariaPy('Mariana',0.50)
+# print(f'Titular da conta é {conta4.titular}')
+
+# QUESTÃO 7
+
+class ClienteBanco:
+    def __init__(self,nome,idade,profissao,endereco,fone):
+        self.nome=nome
+        self.idade=idade
+        self.profissao=profissao
+        self.endereco=endereco
+        self.fone=fone
+
+# cliente1=ClienteBanco('João',30,'Desenvolvedor web','Campo Largo',"88888-8888")
+# cliente2=ClienteBanco('Amanda',23,'Atriz','Curitiba',"77777-7777")
+# cliente3=ClienteBanco('Caio',19,'Mecânico','Campo Largo',"66666-6666")
+# cliente4=ClienteBanco('Lucas',78,'Aposentado','Campo Magro',"55555-5555")
+
+# QUESTÃO 8
+
+    @classmethod
+    def criar_conta(cls,titular,saldo_inicial):
+        conta=ClienteBanco(titular,saldo_inicial)
+        return conta
+    
+conta_cliente1=ClienteBanco.criar_conta('Tatiane',3000)
+print(f'Conta de {conta_cliente1.titular} com saldo R$ {conta_cliente1.saldo_inicial}')
