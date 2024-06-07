@@ -15,6 +15,11 @@ restaurante_japa.alterar_estado()
 restaurante_praca.receber_avaliacao('Albino',8)
 restaurante_praca.receber_avaliacao('Bernadete',9)
 
+restaurante_mexicano.receber_avaliacao('Albino',10)
+restaurante_mexicano.receber_avaliacao('Bernadete',7)
+
+restaurante_japa.receber_avaliacao('Albino',5)
+restaurante_japa.receber_avaliacao('Bernadete',10)
 
 
 #criando a chamada da função de entrada
